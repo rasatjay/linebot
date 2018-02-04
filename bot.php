@@ -21,7 +21,7 @@
                 // get request profile
                 
                 
-                //$url = 'GET https://api.line.me/v2/bot/profile/{'.$user.'}';
+                
                 //$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
                 
                 //$ch = curl_init($url);
