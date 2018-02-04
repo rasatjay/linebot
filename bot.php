@@ -18,15 +18,15 @@
                 $replyToken = $event['replyToken'];
                 
                 
-                $url = 'https://api.line.me/v2/bot/profile/{'.$user.'}';
-                $headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
+                $url2 = 'https://api.line.me/v2/bot/profile/{'.$user.'}';
+                $headers2 = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
                 
-                $ch = curl_init($url);
+                $ch2 = curl_init($url2);
                 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
                 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-                curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+                curl_setopt($ch, CURLOPT_HTTPHEADER, $headers2);
                 curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-                $result = curl_exec($ch);
+                $result = curl_exec($ch2);
                 
                 
                 
