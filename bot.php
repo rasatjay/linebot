@@ -17,28 +17,10 @@
                 // Get replyToken
                 $replyToken = $event['replyToken'];
                 
-
-                // get request profile
-                
-                
-                
-                //$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
-                
-                //$ch = curl_init($url);
-                //curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
-                //curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-                //curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-                //curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-                //$result = curl_exec($ch);
-                //curl_close($ch);
-                //$results = json_decode($result, true);
-                //$displayname =  $results['displayName']);
-                
-                
                 // Build message to reply back
                 $messages = [
                 'type' => 'text',
-                'text' => $text." ".$user;
+                'text' => $text." ".$user
                 ];
                 
                 // Make a POST Request to Messaging API to reply to sender
