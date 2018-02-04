@@ -21,18 +21,18 @@
                 // get request profile
                 
                 
-                $url = 'GET https://api.line.me/v2/bot/profile/{'.$user.'}';
-                $headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
+                //$url = 'GET https://api.line.me/v2/bot/profile/{'.$user.'}';
+                //$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
                 
-                $ch = curl_init($url);
-                curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
-                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-                curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-                curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-                $result = curl_exec($ch);
-                curl_close($ch);
-                $results = json_decode($result, true);
-                $displayname =  $results['displayName']);
+                //$ch = curl_init($url);
+                //curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
+                //curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                //curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+                //curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+                //$result = curl_exec($ch);
+                //curl_close($ch);
+                //$results = json_decode($result, true);
+                //$displayname =  $results['displayName']);
                 
                 
                 // Build message to reply back
