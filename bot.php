@@ -18,7 +18,7 @@
                 $replyToken = $event['replyToken'];
                 
                 
-             //   $url2 = 'https://api.line.me/v2/bot/profile/{'.$user.'}';
+
             //    $headers2 = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
                 
            //     $ch2 = curl_init($url2);
