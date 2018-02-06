@@ -17,10 +17,27 @@
                 // Get replyToken
                 $replyToken = $event['replyToken'];
                 
+                
+                // Get username
+                $urluserreq = 'https://api.line.me/v2/bot/profile/'.$userid;
+                
+                $headers = array('Authorization: Bearer ' . $access_token);
+                
+                $userreq = curl_init($urluserreq);
+                curl_setopt($userreq, CURLOPT_CUSTOMREQUEST, "GET");
+                curl_setopt($userreq, CURLOPT_RETURNTRANSFER, true);
+                curl_setopt($userreq, CURLOPT_HTTPHEADER, $headers);
+                curl_setopt($userreq, CURLOPT_FOLLOWLOCATION, 1);
+                $userjson = curl_exec($userreq);
+                curl_close($userreq);
+                
+                $user = json_decode($userjson, true);
+                $displayname = $user['displayName'];
+                
                 // Build message to reply back
                 $messages = [
                 'type' => 'text',
-                'text' => $text." ".$user
+                'text' => $text." ".$displayname
                 ];
                 
                 // Make a POST Request to Messaging API to reply to sender
