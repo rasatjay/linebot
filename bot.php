@@ -43,17 +43,39 @@
                     $messages = [
                     'type' => 'text',
                     'text' => $text." ".$displayname
+                    ],[
+                    'type' => 'text',
+                    'text' => $text." ".$displayname
                     ];
                 }
                 
-                // exchange currency return
-                if(preg_match('/(?P<digit>\d+(\.\d{1,})?)(\s?)(jpy)/', strtolower($text), $matches)){
+                // exchange JPY currency return
+                elseif(preg_match('/(?P<digit>\d+(\.\d{1,})?)(\s?)(jpy)/', strtolower($text), $matches)){
                     $returncurrency = convertCurrency($matches['digit'], "JPY", "THB");
                     $messages = [
                     'type' => 'text',
                     'text' => $matches[0]." = ".$returncurrency." THB"
                     ];
                 }
+                
+                // exchange THB currency return
+                elseif(preg_match('/(?P<digit>\d+(\.\d{1,})?)(\s?)(thb)/', strtolower($text), $matches)){
+                    $returncurrency = convertCurrency($matches['digit'], "THB", "JPY");
+                    $messages = [
+                    'type' => 'text',
+                    'text' => $matches[0]." = ".$returncurrency." JPY"
+                    ];
+                }
+                
+                // exchangerate
+                if (strtolower($text) == 'exchangerate'){
+                    $messages = [
+                    'type' => 'text',
+                    'text' => convertCurrency($matches['digit'], "JPY", "THB")
+                    ];
+                }
+                
+                
                 
                 
                 
@@ -80,4 +102,3 @@
         }
     }
     echo "OK";
-
