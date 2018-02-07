@@ -39,14 +39,24 @@
                     $displayname = $user['displayName'];
 
                     // Build message to reply back
-                    $messages = [[
-                    'type' => 'text',
-                    'text' => $text." ".$displayname." พิมพ์ 'exrate' เพื่อดูอัตราแลกเปลี่ยน พิมพ์จำนวนเงินเยนตามด้วย 'jpy' เพื่อแปลงเป็นเงินบาท พิมพ์ จำนวนเงินบาทตามด้วย'thb' เพื่อแปลงเป็นเงินเยน"
-                    ],
-                    [
-                    'type' => 'text',
-                    'text' => $text." ".$displayname." พิมพ์ 'exrate' เพื่อดูอัตราแลกเปลี่ยน พิมพ์จำนวนเงินเยนตามด้วย 'jpy' เพื่อแปลงเป็นเงินบาท พิมพ์ จำนวนเงินบาทตามด้วย'thb' เพื่อแปลงเป็นเงินเยน"
-                    ]];
+                    $messages = [
+                        [
+                            'type' => 'text',
+                            'text' => $text." ".$displayname
+                        ],
+                        [
+                            'type' => 'text',
+                            'text' => "พิมพ์ 'exrate' เพื่อดูอัตราแลกเปลี่ยน"
+                        ],
+                        [
+                            'type' => 'text',
+                            'text' => "พิมพ์จำนวนเงินเยนตามด้วย 'jpy' เพื่อแปลงเป็นเงินบาท"
+                        ],
+                        [
+                            'type' => 'text',
+                            'text' => "พิมพ์ จำนวนเงินบาทตามด้วย'thb' เพื่อแปลงเป็นเงินเยน"
+                        ]
+                    ];
                 }
                 
                 // exchange JPY currency return
