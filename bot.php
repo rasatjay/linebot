@@ -37,7 +37,7 @@
                     
                     $user = json_decode($userjson, true);
                     $displayname = $user['displayName'];
-                    $reply = urlencode("\n พิมพ์ 'exrate' เพื่อดูอัตราแลกเปลี่ยน \n พิมพ์จำนวนเงินเยนตามด้วย 'jpy' เพื่อแปลงเป็นเงินบาท \n  พิมพ์ จำนวนเงินบาทตามด้วย'thb' เพื่อแปลงเป็นเงินเยน");
+                    $manual = urlencode("\n พิมพ์ 'exrate' เพื่อดูอัตราแลกเปลี่ยน \n พิมพ์จำนวนเงินเยนตามด้วย 'jpy' เพื่อแปลงเป็นเงินบาท \n  พิมพ์ จำนวนเงินบาทตามด้วย'thb' เพื่อแปลงเป็นเงินเยน");
                     // Build message to reply back
                     $messages = [
                     'type' => 'text',
