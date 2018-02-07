@@ -43,7 +43,7 @@
                     $messages = [
                     'type' => 'text',
                     'text' => $text." ".$displayname
-                    ]
+                    ];
                 }
                 
                 // exchange JPY currency return
