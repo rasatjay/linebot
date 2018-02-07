@@ -39,40 +39,40 @@
                     $displayname = $user['displayName'];
 
                     // Build message to reply back
-                    $messages = [
+                    $messages = [[
                     'type' => 'text',
                     'text' => $text." ".$displayname." พิมพ์ 'exrate' เพื่อดูอัตราแลกเปลี่ยน พิมพ์จำนวนเงินเยนตามด้วย 'jpy' เพื่อแปลงเป็นเงินบาท พิมพ์ จำนวนเงินบาทตามด้วย'thb' เพื่อแปลงเป็นเงินเยน"
-                    ];
-                    $messages2 = [
+                    ],
+                    [
                     'type' => 'text',
                     'text' => $text." ".$displayname." พิมพ์ 'exrate' เพื่อดูอัตราแลกเปลี่ยน พิมพ์จำนวนเงินเยนตามด้วย 'jpy' เพื่อแปลงเป็นเงินบาท พิมพ์ จำนวนเงินบาทตามด้วย'thb' เพื่อแปลงเป็นเงินเยน"
-                    ];
+                    ]];
                 }
                 
                 // exchange JPY currency return
                 elseif(preg_match('/(?P<digit>\d+(\.\d{1,})?)(\s?)(jpy)/', strtolower($text), $matches)){
                     $returncurrency = convertCurrency($matches['digit'], "JPY", "THB");
-                    $messages = [
+                    $messages = [[
                     'type' => 'text',
                     'text' => $matches[0]." = ".$returncurrency." THB"
-                    ];
+                    ]];
                 }
                 
                 // exchange THB currency return
                 elseif(preg_match('/(?P<digit>\d+(\.\d{1,})?)(\s?)(thb)/', strtolower($text), $matches)){
                     $returncurrency = convertCurrency($matches['digit'], "THB", "JPY");
-                    $messages = [
+                    $messages = [[
                     'type' => 'text',
                     'text' => $matches[0]." = ".$returncurrency." JPY"
-                    ];
+                    ]];
                 }
                 
                 // exchangerate
                 if (strtolower($text) == 'exrate'){
-                    $messages = [
+                    $messages = [[
                     'type' => 'text',
                     'text' => convertCurrency(1, "JPY", "THB")
-                    ];
+                    ]];
                 }
                 
                 
@@ -83,7 +83,7 @@
                 $url = 'https://api.line.me/v2/bot/message/reply';
                 $data = [
                 'replyToken' => $replyToken,
-                'messages' => [$messages,$messages2],
+                'messages' => $messages,
                 ];
                 $post = json_encode($data);
                 $headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
