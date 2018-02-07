@@ -40,15 +40,12 @@
 
                     // Build message to reply back
                     $messages = [
-                    
-                        ['type' => 'text',
-                        'text' => $text." ".$displayname." พิมพ์ 'exrate' เพื่อดูอัตราแลกเปลี่ยน พิมพ์จำนวนเงินเยนตามด้วย 'jpy' เพื่อแปลงเป็นเงินบาท พิมพ์ จำนวนเงินบาทตามด้วย'thb' เพื่อแปลงเป็นเงินเยน"
-                        ],
-                    
-                        ['type' => 'text',
-                        'text' => $text." ".$displayname." พิมพ์ 'exrate' เพื่อดูอัตราแลกเปลี่ยน พิมพ์จำนวนเงินเยนตามด้วย 'jpy' เพื่อแปลงเป็นเงินบาท พิมพ์ จำนวนเงินบาทตามด้วย'thb' เพื่อแปลงเป็นเงินเยน"
-                        ]
-                    
+                    'type' => 'text',
+                    'text' => $text." ".$displayname." พิมพ์ 'exrate' เพื่อดูอัตราแลกเปลี่ยน พิมพ์จำนวนเงินเยนตามด้วย 'jpy' เพื่อแปลงเป็นเงินบาท พิมพ์ จำนวนเงินบาทตามด้วย'thb' เพื่อแปลงเป็นเงินเยน"
+                    ];
+                    $messages2 = [
+                    'type' => 'text',
+                    'text' => $text." ".$displayname." พิมพ์ 'exrate' เพื่อดูอัตราแลกเปลี่ยน พิมพ์จำนวนเงินเยนตามด้วย 'jpy' เพื่อแปลงเป็นเงินบาท พิมพ์ จำนวนเงินบาทตามด้วย'thb' เพื่อแปลงเป็นเงินเยน"
                     ];
                 }
                 
@@ -86,7 +83,7 @@
                 $url = 'https://api.line.me/v2/bot/message/reply';
                 $data = [
                 'replyToken' => $replyToken,
-                'messages' => [$messages],
+                'messages' => [$messages,$message2],
                 ];
                 $post = json_encode($data);
                 $headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
