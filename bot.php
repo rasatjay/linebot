@@ -37,12 +37,14 @@
                     
                     $user = json_decode($userjson, true);
                     $displayname = $user['displayName'];
-                    $br = urlencode("\n");
+
                     // Build message to reply back
-                    $messages = [
+                    $messages = array(
                     'type' => 'text',
                     'text' => $text." ".$displayname.$br." พิมพ์ 'exrate' เพื่อดูอัตราแลกเปลี่ยน".$br."พิมพ์จำนวนเงินเยนตามด้วย 'jpy' เพื่อแปลงเป็นเงินบาท".$br."/nพิมพ์ จำนวนเงินบาทตามด้วย'thb' เพื่อแปลงเป็นเงินเยน"
-                    ];
+                    ),array(
+                    'type' => 'text',
+                    'text' => $text." ".$displayname.$br." พิมพ์ 'exrate' เพื่อดูอัตราแลกเปลี่ยน".$br."พิมพ์จำนวนเงินเยนตามด้วย 'jpy' เพื่อแปลงเป็นเงินบาท".$br."/nพิมพ์ จำนวนเงินบาทตามด้วย'thb' เพื่อแปลงเป็นเงินเยน");
                 }
                 
                 // exchange JPY currency return
