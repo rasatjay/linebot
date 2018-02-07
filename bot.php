@@ -42,7 +42,7 @@
                     // Build message to reply back
                     $messages = [
                     'type' => 'text',
-                    'text' => $text." ".$displayname
+                    'text' => $text." ".$displayname.'\r\n พิมพ์ "exrate" เพื่อดูอัตราแลกเปลี่ยน \r\n พิมพ์จำนวนเงินเยนตามด้วย "jpy" เพื่อแปลงเป็นเงินบาท \r\n  พิมพ์ จำนวนเงินบาทตามด้วย"thb" เพื่อแปลงเป็นเงินเยน'
                     ];
                 }
                 
@@ -65,10 +65,10 @@
                 }
                 
                 // exchangerate
-                if (strtolower($text) == 'exchangerate'){
+                if (strtolower($text) == 'exrate'){
                     $messages = [
                     'type' => 'text',
-                    'text' => convertCurrency($matches['digit'], "JPY", "THB")
+                    'text' => convertCurrency(1, "JPY", "THB")
                     ];
                 }
                 
