@@ -1,5 +1,5 @@
 <?php
-    $access_token='yucixks88GKG6RmFHC3qwK8EuEY1CLq3oXAkJCUTyLIMxN7bq17SIMDHTibPiKMF4vBXgOgU2f9rZMFTjWBc1JcFcC/RJXVdXERvkmPo0GTOBfUBESQ8o7KLHiRdvY83uVCVDuGEmbSaUEt/vBOdNAdB04t89/1O/w1cDnyilFU=';
+    include 'currencyconverter.php'; $access_token='yucixks88GKG6RmFHC3qwK8EuEY1CLq3oXAkJCUTyLIMxN7bq17SIMDHTibPiKMF4vBXgOgU2f9rZMFTjWBc1JcFcC/RJXVdXERvkmPo0GTOBfUBESQ8o7KLHiRdvY83uVCVDuGEmbSaUEt/vBOdNAdB04t89/1O/w1cDnyilFU=';
     
     // Get POST body content
     $content = file_get_contents('php://input');
@@ -11,34 +11,51 @@
         foreach ($events['events'] as $event) {
             // Reply only when message sent is in 'text' format
             if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
+                
+                
+                
                 // Get text sent
                 $text = $event['message']['text'];
-                $userid = $event['source']['userId'];
+                
                 // Get replyToken
                 $replyToken = $event['replyToken'];
                 
+                // Reply hello
+                if (strtolower($text) == 'hello'){
+                    $userid = $event['source']['userId'];
+                    $urluserreq = 'https://api.line.me/v2/bot/profile/'.$userid;
+                    
+                    $headers = array('Authorization: Bearer ' . $access_token);
+                    
+                    $userreq = curl_init($urluserreq);
+                    curl_setopt($userreq, CURLOPT_CUSTOMREQUEST, "GET");
+                    curl_setopt($userreq, CURLOPT_RETURNTRANSFER, true);
+                    curl_setopt($userreq, CURLOPT_HTTPHEADER, $headers);
+                    curl_setopt($userreq, CURLOPT_FOLLOWLOCATION, 1);
+                    $userjson = curl_exec($userreq);
+                    curl_close($userreq);
+                    
+                    $user = json_decode($userjson, true);
+                    $displayname = $user['displayName'];
+                    
+                    
+                    // Build message to reply back
+                    $messages = [
+                    'type' => 'text',
+                    'text' => $text." ".$displayname
+                    ];
+                }
                 
-                // Get username
-                $urluserreq = 'https://api.line.me/v2/bot/profile/'.$userid;
+                // exchange currency return
+                if(preg_match('/(?P<digit>\d+(\.\d{1,})?)(\s?)(jpy)/', strtolower($text), $matches)){
+                    $returncurrency = convertCurrency($matches['digit'], "JPY", "THB");
+                    $messages = [
+                    'type' => 'text',
+                    'text' => $matches[0]." = ".$returncurrency." THB"
+                    ];
+                }
                 
-                $headers = array('Authorization: Bearer ' . $access_token);
                 
-                $userreq = curl_init($urluserreq);
-                curl_setopt($userreq, CURLOPT_CUSTOMREQUEST, "GET");
-                curl_setopt($userreq, CURLOPT_RETURNTRANSFER, true);
-                curl_setopt($userreq, CURLOPT_HTTPHEADER, $headers);
-                curl_setopt($userreq, CURLOPT_FOLLOWLOCATION, 1);
-                $userjson = curl_exec($userreq);
-                curl_close($userreq);
-                
-                $user = json_decode($userjson, true);
-                $displayname = $user['displayName'];
-                
-                // Build message to reply back
-                $messages = [
-                'type' => 'text',
-                'text' => "Hello ".$displayname." you are saying ".$text
-                ];
                 
                 // Make a POST Request to Messaging API to reply to sender
                 $url = 'https://api.line.me/v2/bot/message/reply';
@@ -63,3 +80,4 @@
         }
     }
     echo "OK";
+
