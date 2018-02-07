@@ -37,11 +37,11 @@
                     
                     $user = json_decode($userjson, true);
                     $displayname = $user['displayName'];
-                    $br = unicode(" \n ");
+                    $br = urlencode("\n");
                     // Build message to reply back
                     $messages = [
                     'type' => 'text',
-                    'text' => $text." ".$displayname.$br." พิมพ์ 'exrate' เพื่อดูอัตราแลกเปลี่ยน".$br."พิมพ์จำนวนเงินเยนตามด้วย 'jpy' เพื่อแปลงเป็นเงินบาท".$br."พิมพ์ จำนวนเงินบาทตามด้วย'thb' เพื่อแปลงเป็นเงินเยน"
+                    'text' => $text." ".$displayname.$br." พิมพ์ 'exrate' เพื่อดูอัตราแลกเปลี่ยน".$br."พิมพ์จำนวนเงินเยนตามด้วย 'jpy' เพื่อแปลงเป็นเงินบาท".$br."/nพิมพ์ จำนวนเงินบาทตามด้วย'thb' เพื่อแปลงเป็นเงินเยน"
                     ];
                 }
                 
