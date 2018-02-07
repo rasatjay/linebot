@@ -37,7 +37,7 @@
                     
                     $user = json_decode($userjson, true);
                     $displayname = $user['displayName'];
-                    $br = urlencode("\n");
+                    $br = unicode(" \n ");
                     // Build message to reply back
                     $messages = [
                     'type' => 'text',
