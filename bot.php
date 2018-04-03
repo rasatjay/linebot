@@ -42,7 +42,7 @@
                     $messages = [
                         [
                             'type' => 'text',
-                            'text' => $text." ".$displayname
+                            'text' => $text." ".$displayname.$userid
                         ],
                         [
                             'type' => 'text',
