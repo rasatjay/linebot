@@ -1,5 +1,9 @@
 <?php
+<<<<<<< HEAD
     include 'currencyconverter.php';
+=======
+    include 'currencyconverter.php'; 
+>>>>>>> b5f6c34638d557e9dc81277957bc946db1083c41
     
     $access_token='yucixks88GKG6RmFHC3qwK8EuEY1CLq3oXAkJCUTyLIMxN7bq17SIMDHTibPiKMF4vBXgOgU2f9rZMFTjWBc1JcFcC/RJXVdXERvkmPo0GTOBfUBESQ8o7KLHiRdvY83uVCVDuGEmbSaUEt/vBOdNAdB04t89/1O/w1cDnyilFU=';
     
