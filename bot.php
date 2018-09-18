@@ -78,7 +78,7 @@
                                 ]
                             }
                         ]
-                    ];
+                    ]
                 }
                 
                 // exchange JPY currency return
