@@ -57,7 +57,7 @@
                         [
                             'type' => 'text',
                             'text' => "พิมพ์ จำนวนเงินบาทตามด้วย'thb' เพื่อแปลงเป็นเงินเยน"
-                        ]
+                        ],
                         [
                             'type'=> 'template',
                             'altText'=> 'this is a confirm template',
