@@ -50,12 +50,33 @@
                         ],
                         [
                             'type' => 'text',
-                            'text' => "พิมพ์จำนวนเงินเยนตามด้วย 'jpyyyy' เพื่อแปลงเป็นเงินบาท"
+                            'text' => "พิมพ์จำนวนเงินเยนตามด้วย 'jpyxy' เพื่อแปลงเป็นเงินบาท"
                         ],
                         [
                             'type' => 'text',
                             'text' => "พิมพ์ จำนวนเงินบาทตามด้วย'thb' เพื่อแปลงเป็นเงินเยน"
+                        ],
+                        [
+                            'type'=> 'template',
+                            'altText'=> 'this is a confirm template',
+                            'template'=> {
+                                'type'=> 'confirm',
+                                'text'=> 'Are you sure?',
+                                'actions'=> [
+                                    {
+                                        'type'=> 'message',
+                                        'labe'=> 'Yes',
+                                        'text'=> 'yes'
+                                    },
+                                    {
+                                        'type'=> 'message',
+                                        'label'=> 'No',
+                                        'text'=> 'no'
+                                    }
+                                ]
+                            }
                         ]
+                    
                     ];
                 }
                 
