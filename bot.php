@@ -1,5 +1,7 @@
 <?php
-    include 'currencyconverter.php'; $access_token='yucixks88GKG6RmFHC3qwK8EuEY1CLq3oXAkJCUTyLIMxN7bq17SIMDHTibPiKMF4vBXgOgU2f9rZMFTjWBc1JcFcC/RJXVdXERvkmPo0GTOBfUBESQ8o7KLHiRdvY83uVCVDuGEmbSaUEt/vBOdNAdB04t89/1O/w1cDnyilFU=';
+    include 'currencyconverter.php';
+    
+    $access_token='yucixks88GKG6RmFHC3qwK8EuEY1CLq3oXAkJCUTyLIMxN7bq17SIMDHTibPiKMF4vBXgOgU2f9rZMFTjWBc1JcFcC/RJXVdXERvkmPo0GTOBfUBESQ8o7KLHiRdvY83uVCVDuGEmbSaUEt/vBOdNAdB04t89/1O/w1cDnyilFU=';
     
     // Get POST body content
     $content = file_get_contents('php://input');
@@ -37,26 +39,45 @@
                     
                     $user = json_decode($userjson, true);
                     $displayname = $user['displayName'];
-
                     // Build message to reply back
                     $messages = [
-                        [
-                            'type' => 'text',
-                            'text' => $text." ".$displayname
-                        ],
-                        [
-                            'type' => 'text',
-                            'text' => "พิมพ์ 'exrate' เพื่อดูอัตราแลกเปลี่ยน"
-                        ],
-                        [
-                            'type' => 'text',
-                            'text' => "พิมพ์จำนวนเงินเยนตามด้วย 'jpy' เพื่อแปลงเป็นเงินบาท"
-                        ],
-                        [
-                            'type' => 'text',
-                            'text' => "พิมพ์ จำนวนเงินบาทตามด้วย'thb' เพื่อแปลงเป็นเงินเยน"
+                    [
+                    'type' => 'text',
+                    'text' => $text." ".$displayname.$userid
+                    ],
+                    [
+                    'type' => 'text',
+                    'text' => "พิมพ์ 'exrate' เพื่อดูอัตราแลกเปลี่ยน"
+                    ],
+                    [
+                    'type' => 'text',
+                    'text' => "พิมพ์จำนวนเงินเยนตามด้วย 'jpyyy' เพื่อแปลงเป็นเงินบาท"
+                    ],
+                    [
+                    'type' => 'text',
+                    'text' => "พิมพ์ จำนวนเงินบาทตามด้วย'thb' เพื่อแปลงเป็นเงินเยน"
+                    ],
+                    [
+                    'type'=> 'template',
+                    'altText'=> 'this is a confirm template',
+                    'template'=> {
+                        'type'=> 'confirm',
+                        'text'=> 'Are you sure?',
+                        'actions'=> [
+                        {
+                            'type'=> 'message',
+                            'labe'=> 'Yes',
+                            'text'=> 'yes'
+                        },
+                        {
+                            'type'=> 'message',
+                            'label'=> 'No',
+                            'text'=> 'no'
+                        }
                         ]
-                    ];
+                    }
+                    ]
+                    ]
                 }
                 
                 // exchange JPY currency return
