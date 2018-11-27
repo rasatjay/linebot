@@ -317,7 +317,13 @@
                     
                     ];
                 }
-                
+                elseif (strtolower($text) == 'lift'){
+                    $messages = [[
+                    'type' => 'text',
+                    'text' => 'line://app/1561062941-EAZ9lbmZ)'
+                    ]];
+                    
+                }
                 // exchange JPY currency return
                 elseif(preg_match('/(?P<digit>\d+(\.\d{1,})?)(\s?)(jpy)/', strtolower($text), $matches)){
                     $returncurrency = convertCurrency($matches['digit'], "JPY", "THB");
