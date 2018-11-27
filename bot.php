@@ -320,7 +320,7 @@
                 elseif (strtolower($text) == 'lift'){
                     $messages = [[
                     'type' => 'text',
-                    'text' => 'line://app/1561062941-EAZ9lbmZ)'
+                    'text' => 'line://app/1561062941-EAZ9lbmZ'
                     ]];
                     
                 }
