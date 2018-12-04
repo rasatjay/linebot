@@ -320,7 +320,7 @@
                 elseif (strtolower($text) == 'lift'){
                     $messages = [[
                     'type' => 'text',
-                    'text' => 'line://app/1561062941-EAZ9lbmZ1111'
+                    'text' => 'line://app/1561062941-EAZ9lbmZ'
                     ]];
                     
                 }
@@ -328,7 +328,7 @@
 				elseif (strtolower($text) == 'You'){
                     $messages = [[
                     'type' => 'text',
-                    'text' => 'start search'
+                    'text' => "start search"
                     ]];
                     
                 }
