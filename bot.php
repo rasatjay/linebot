@@ -324,6 +324,14 @@
                     ]];
                     
                 }
+				
+				elseif (strtolower($text) == 'You ve successfully sent a message! Hooray!'){
+                    $messages = [[
+                    'type' => 'text',
+                    'text' => 'start search'
+                    ]];
+                    
+                }
                 // exchange JPY currency return
                 elseif(preg_match('/(?P<digit>\d+(\.\d{1,})?)(\s?)(jpy)/', strtolower($text), $matches)){
                     $returncurrency = convertCurrency($matches['digit'], "JPY", "THB");
