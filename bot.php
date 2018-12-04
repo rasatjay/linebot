@@ -325,10 +325,10 @@
                     
                 }
 				
-				elseif (strtolower($text) == 'You'){
+				elseif (strtolower($text) == 'you'){
                     $messages = [[
                     'type' => 'text',
-                    'text' => "start search"
+                    'text' => 'asdf'
                     ]];
                     
                 }
