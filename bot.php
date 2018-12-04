@@ -325,7 +325,7 @@
                     
                 }
 				
-				elseif (strtolower($text) == 'You ve successfully sent a message! Hooray!'){
+				elseif (strtolower($text) == 'You'){
                     $messages = [[
                     'type' => 'text',
                     'text' => 'start search'
